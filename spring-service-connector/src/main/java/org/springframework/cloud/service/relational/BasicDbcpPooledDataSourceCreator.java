@@ -18,19 +18,18 @@ public class BasicDbcpPooledDataSourceCreator<SI extends RelationalServiceInfo> 
 	@Override
 	public DataSource create(RelationalServiceInfo serviceInfo, ServiceConnectorConfig serviceConnectorConfig,
 			                 String driverClassName, String validationQuery) {
-		if (hasClass("org.apache.commons.dbcp.BasicDataSource")) {
-			logger.info("Found DBCP on the classpath. Using it for DataSource connection pooling.");
-			org.apache.commons.dbcp.BasicDataSource ds = new org.apache.commons.dbcp.BasicDataSource();
-			setBasicDataSourceProperties(ds, serviceInfo, serviceConnectorConfig, driverClassName, validationQuery);
-			return ds;
-		} else if (hasClass("org.apache.commons.dbcp2.BasicDataSource")) {
-	            logger.info("Found DBCP on the classpath. Using it for DataSource connection pooling.");
-	            org.apache.commons.dbcp2.BasicDataSource ds = new org.apache.commons.dbcp2.BasicDataSource();
-	            setBasicDataSourceProperties(ds, serviceInfo, serviceConnectorConfig, driverClassName, validationQuery);
-	            return ds;
+		if (hasClass("org.apache.commons.dbcp2.BasicDataSource")) {
+            logger.info("Found DBCP on the classpath. Using it for DataSource connection pooling.");
+            org.apache.commons.dbcp2.BasicDataSource ds = new org.apache.commons.dbcp2.BasicDataSource();
+            setBasicDataSourceProperties(ds, serviceInfo, serviceConnectorConfig, driverClassName, validationQuery);
+            return ds;
+		} else if (hasClass("org.apache.commons.dbcp.BasicDataSource")) {
+            logger.info("Found DBCP on the classpath. Using it for DataSource connection pooling.");
+            org.apache.commons.dbcp.BasicDataSource ds = new org.apache.commons.dbcp.BasicDataSource();
+            setBasicDataSourceProperties(ds, serviceInfo, serviceConnectorConfig, driverClassName, validationQuery);
+            return ds;
 		} else {
 			return null;
 		}
 	}
-
 }
