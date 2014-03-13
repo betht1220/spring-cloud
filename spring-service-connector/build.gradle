@@ -1,5 +1,10 @@
 description = 'Service Connectors'
 
+test.testLogging { 
+	exceptionFormat "full"
+	showStandardStreams = true 
+}
+
 dependencies {
   testCompile project(path: ':core', configuration: 'tests')
   compile project(':core')

@@ -27,7 +27,7 @@ public class PooledDataSourceCreatorsTest {
 	public void pooledDataSourceCreation() {
 		List<PooledDataSourceCreator<MysqlServiceInfo>> pooledDataSourceCreators = new ArrayList<PooledDataSourceCreator<MysqlServiceInfo>>();
 
-		pooledDataSourceCreators.add(new BasicDbcpPooledDataSourceCreator<MysqlServiceInfo>());
+		//pooledDataSourceCreators.add(new BasicDbcpPooledDataSourceCreator<MysqlServiceInfo>());
 		pooledDataSourceCreators.add(new TomcatDbcpPooledDataSourceCreator<MysqlServiceInfo>());
 		pooledDataSourceCreators.add(new TomcatHighPerformancePooledDataSourceCreator<MysqlServiceInfo>());
 
