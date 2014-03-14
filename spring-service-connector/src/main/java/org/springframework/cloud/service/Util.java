@@ -15,6 +15,7 @@ public abstract class Util {
 			Class.forName(name);
 			return true;
 		} catch (Throwable ex) {
+		    ex.printStackTrace(System.out);
 			return false;
 		}
 	}
